@@ -1,5 +1,5 @@
 {
-  "name": "yes",
+  "name": "full-stack-web-development",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
@@ -7,12 +7,10 @@
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "prepare": "svelte-kit sync",
-    "test": "playwright test",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@playwright/test": "^1.21.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "svelte": "^3.44.0",
