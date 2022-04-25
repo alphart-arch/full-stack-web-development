@@ -85,7 +85,7 @@ export let todo:Todo;
         <button aria-label="save todo" class="save"></button>
     </form>
 
-    <form action="" method="">
+    <form action="/todo/{todo.uid}uid.json?_method=delete" method="post">
         <button aria-label="delete todo" class="delete"></button>
     </form>
 </div>

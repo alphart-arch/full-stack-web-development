@@ -5,7 +5,6 @@ let todos:Todo[]=[];
 export const api = (request:Request , todo?:Todo) => {
    let body={};
    let status=500;
-   
     switch (request.method.toUppercase()) {
         case "GET":
             body=todos;
@@ -13,15 +12,8 @@ export const api = (request:Request , todo?:Todo) => {
             break;
         case "POST":
             todos.push(todo);
-            return{
-                status:303,
-                //body:"hello",
-                headers:{
-                    location:"/"
-                }
-        
-            }
-
+            body=todo;
+            status=201;
             break; 
         case "DELETE":
             todos=todos.filter(todo => todo.uid !== request.params.uid)
@@ -30,6 +22,16 @@ export const api = (request:Request , todo?:Todo) => {
     
         default:
             break;
+    }
+    if(request.method.toUppercase() !=="GET"){
+        return{
+            status:303,
+            //body:"hello",
+            headers:{
+                location:"/"
+            }
+    
+        }
     }
     return{
         status,
