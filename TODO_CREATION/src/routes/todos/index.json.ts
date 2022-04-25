@@ -1,15 +1,19 @@
 import type { RequestHandler } from "@sveltejs/kit";
-let todos:Todo[]=[];
-export const get:RequestHandler =() => {
-    return{
-        status:200,
-        body:todos
-    }
+import {api} from "./_api";
+
+export const get:RequestHandler =(request) => {
+    return api(request);
 }
 
 export const post:RequestHandler<{},FormData> = (request) =>{
     //console.log(request.body.get("text"));
-    todos.push({
+    return api(request ,{
+        uid: '${Date.now()}',
+        created_at:new Date(),
+        text:request.body.get("text"),
+        done:false
+    });
+  /*  todos.push({
         created_at:new Date(),
         text:request.body.get("text"),
         done:false
@@ -21,7 +25,7 @@ export const post:RequestHandler<{},FormData> = (request) =>{
             location:"/"
         }
 
-    }
+    }*/
 }
 
 
