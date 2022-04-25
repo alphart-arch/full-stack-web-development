@@ -80,8 +80,8 @@ export let todo:Todo;
         <button aria-label="Mark done/not done" class="toggle"></button>
     </form>
 
-    <form action="" method="" class="text">
-        <input type="text" value="{todo.text}"/>
+    <form action="/todo/{todo.uid}uid.json?_method=patch" method="post" class="text">
+        <input type="text" name="text" value="{todo.text}"/>
         <button aria-label="save todo" class="save"></button>
     </form>
 
