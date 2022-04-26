@@ -1,7 +1,7 @@
 <script  context="module" lang="ts">
 import type {Load} from "@sveltejs/kit";
 import { each } from "svelte/internal";
-
+import {enhance} from "$lib/actions/form";
 export const load:Load=async({fetch})=>{
 const res= await fetch("/todos.json");
 if(res.ok){
@@ -56,7 +56,7 @@ error:new Error(message)
 <div class="todos">
 <h1>{title}</h1>
 
-<form action="/todos.json" method="post" class="new">
+<form action="/todos.json" method="post" class="new" use:enhance>
 <input type="text" name="text" aria-label="Add a todo" placeholder="+ type to add a todo"/>
 </form>
 

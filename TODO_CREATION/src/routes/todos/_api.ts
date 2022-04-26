@@ -24,6 +24,9 @@ export const api = (request:Request , data?:Record<string , unknown >) => {
                 if(todo.uid === request.params.uid){
                     todo.text=data.text as string;
                 }
+                else{
+                    todo.done=data.done as boolean;
+                }
                 return todo;
 
             });
