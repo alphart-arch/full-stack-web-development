@@ -9,6 +9,9 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
+		/*methodOverride: {
+			allowed: ['PUT', 'PATCH', 'DELETE']
+		  },*/
 		//target: '#svelte',
 			vite:{
 			server:{
@@ -21,4 +24,11 @@ const config = {
 	}
 };
 
+/*const config = {
+	kit: {
+	  methodOverride: {
+		allowed: ['PUT', 'PATCH', 'DELETE']
+	  }
+	}
+  };*/
 export default config;

@@ -1,9 +1,27 @@
-export const enhance = (form:HTMLFormElement) =>{
+
+export const enhance = (form:HTMLFormElement , {
+    result
+}) =>{
 
     const handlesubmit = async (event : Event) =>{
         event.preventDefault();
         try{
-            const res=await fetch("TODO: endpoints");
+            const body=new FormData(form);
+            const res=await fetch(form.action, {
+                method:form.method,
+                headers:{
+                    accept:"application/json"
+
+                },
+                body
+            });
+            if(res.ok){
+                //console.log("API response :" , await res.json());
+                result(res , form);
+            }
+            else{
+                console.error("fetch error: " ,await res.text());
+            }
 
         }
         catch(error){

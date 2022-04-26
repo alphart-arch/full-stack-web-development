@@ -1,5 +1,4 @@
 import type { Request } from "@sveltejs/kit";
-
 let todos:Todo[]=[];
 
 export const api = (request:Request , data?:Record<string , unknown >) => {
@@ -31,13 +30,14 @@ export const api = (request:Request , data?:Record<string , unknown >) => {
 
             });
             status=200;
-            
+            body=todos.find(todo => todo.uid === request.params.uid);
             break;
     
         default:
             break;
     }
-    if(request.method.toUppercase() !=="GET"){
+    if(request.method.toUppercase() !=="GET" &&
+       request.headers.accept !== "application/json"){
         return{
             status:303,
             //body:"hello",
