@@ -19,9 +19,23 @@ error:new Error(message)
 
 
 <script lang="ts">
-    import TodoItem from "/home/oracle/svelte/full-stack-web-development/TODO_CREATION/src/lib/todo_item.svelte";
+    import TodoItem from "$lib/todo-item.svelte";
     export let todos:Todo[];
     const title="Todos"
+    const processNewTodoResult = async (res:Response , form:HTMLFormElement) =>{
+      const newTodo = await res.json();
+      todos = [...todos , newTodo];
+      form.reset(); 
+
+    };
+const processUpdatedTodoResult =async(res:Response) =>{
+  const updatedTodo = await res.json();
+  todos= todos.map(t =>{
+    if(t.uid === updatedTodo.uid) return updatedTodo;
+    return t;
+  })
+
+};
 </script>
 <svelte:head>
     <title>{title}</title>
@@ -56,11 +70,19 @@ error:new Error(message)
 <div class="todos">
 <h1>{title}</h1>
 
-<form action="/todos.json" method="post" class="new" use:enhance>
+<form action="/todos.json" method="post" class="new" use:enhance = {{
+result:processNewTodoResult
+
+}}>
 <input type="text" name="text" aria-label="Add a todo" placeholder="+ type to add a todo"/>
 </form>
 
 {#each todos as todo}
-<TodoItem {todo} />
+<TodoItem 
+{todo} 
+processDeletedTodoResult={() => {
+  todos=todos.filter(t =>t.uid!== todo.uid);
+}}
+{processUpdatedTodoResult}/>
 {/each}
 </div>
