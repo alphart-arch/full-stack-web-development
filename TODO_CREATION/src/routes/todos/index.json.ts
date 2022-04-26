@@ -9,7 +9,6 @@ export const post:RequestHandler = async({request}) =>{
     //console.log(request.body.get("text"));
     const formData = await request.formData();
     return api(request ,{
-        uid: '${Date.now()}',
         created_at:new Date(),
         text:formData.get('text'),
         done:false
