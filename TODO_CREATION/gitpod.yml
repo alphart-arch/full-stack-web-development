@@ -7,8 +7,8 @@ tasks:
       export HMR_HOST='gp url 3000' 
       echo "Starting dev server...."
       npm run dev
-  - env:
-    DATABASE_URL: postgresql://postgres:pgadmin@localhost/todos
+   env:
+     DATABASE_URL: postgres://postgres:pgadmin@localhost:3000/todos
 ports:
   - port: 3000
     onOpen: open-browser
