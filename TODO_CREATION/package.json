@@ -2,6 +2,7 @@
   "name": "todo-creation",
   "version": "0.0.1",
   "scripts": {
+    "predev":"",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
@@ -18,7 +19,7 @@
     "@typescript-eslint/parser": "^5.21.0",
     "eslint": "^7.32.0",
     "eslint-plugin-svelte3": "^3.2.1",
-    "prisma": "^3.12.0",
+    "prisma": "^3.13.0",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.6",
     "svelte-preprocess": "^4.10.1",
@@ -27,6 +28,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@prisma/client": "^3.13.0",
     "request": "^2.88.2"
   }
 }

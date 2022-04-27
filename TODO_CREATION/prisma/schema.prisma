@@ -1,7 +1,8 @@
 
 datasource db {
     provider = "postgresql"
-    url      = env("DATABASE_URL")
+    //url      = env("DATABASE_URL")
+    url ="postgresql://postgres:pgadmin@localhost:5432/todos"
 }
 
 generator client {
@@ -19,3 +20,5 @@ model Todo{
 
 //"postgres://gitpod@192.168.1.111/todos"
 //postgresql://postgres:pgadmin@localhost/todos
+//env:
+     //DATABASE_URL: postgresql://postgres:pgadmin@localhost:5432/todos 
