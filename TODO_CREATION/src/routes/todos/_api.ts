@@ -1,6 +1,6 @@
-import type { Request } from "@sveltejs/kit";
+import type  { Request } from "@sveltejs/kit";
 import PrismaClient from "$lib/prisma";
-import type { Prisma } from "@prisma/client";
+//import type { Prisma } from "@prisma/client";
 //let todos:Todo[]=[];
 const prisma = new PrismaClient();
 
@@ -61,7 +61,7 @@ export const api = async(request:Request , data?:Record<string , unknown >) => {
         default:
             break;
     }
-    if(request.method.toUppercase() !=="GET" &&
+    if(request.method.toUpperCase() !=="GET" &&
        request.headers.accept !== "application/json"){
         return{
             status:303,
