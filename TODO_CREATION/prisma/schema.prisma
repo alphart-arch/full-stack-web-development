@@ -18,3 +18,4 @@ model Todo{
 
 
 //"postgres://gitpod@192.168.1.111/todos"
+//postgresql://postgres:pgadmin@localhost/todos
