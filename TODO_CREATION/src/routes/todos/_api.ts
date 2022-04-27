@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export const api = async(request:Request , data?:Record<string , unknown >) => {
    let body={};
    let status=500;
-    switch (request.method.toUppercase()) {
+    switch (request.method.toUpperCase()) {
         case "GET":
             body=await prisma.todo.findMany();
             status=200;
